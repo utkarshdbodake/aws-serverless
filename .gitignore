@@ -24,4 +24,9 @@ hs_err_pid*
 
 .idea/
 .serverless/
+
+# Maven
 target/
+
+# Nodejs
+node_modules/
