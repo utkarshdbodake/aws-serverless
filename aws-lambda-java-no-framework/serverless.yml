@@ -1,10 +1,17 @@
-service: aws-java-simple-http-endpoint
+service:
+  name: aws-lambda-java-no-framework-service
 
 frameworkVersion: ">=1.2.0 <2.0.0"
 
 provider:
   name: aws
   runtime: java8
+  stage: prod
+  region: us-east-1
+  memorySize: 128
+  timeout: 5 # in seconds
+  environment: # service wide environment variables
+    serviceEnvVar: 123456789-service
 
 package:
   artifact: target/aws-lambda-java-no-framework.jar
@@ -12,6 +19,12 @@ package:
 functions:
   pingFunction:
     handler: com.serverless.PingHandler
+    description: Ping pong function
+    runtime: java8 # Runtime for this specific function. Overrides the default which is set on the provider level
+    memorySize: 512 # memorySize for this specific function.
+    timeout: 10 # Timeout for this specific function.  Overrides the default set above
+    environment: # Function level environment variables
+      functionEnvVar: 123456789-fn
     events:
       - http:
           path: ping
