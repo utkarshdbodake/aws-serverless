@@ -10,11 +10,11 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 public class PingHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
-    private static final Logger LOG = Logger.getLogger(PingHandler.class);
+    private static final Logger Log = Logger.getLogger(PingHandler.class);
 
     @Override
     public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
-        LOG.info("received: " + input);
+        Log.info("received: " + input);
         Response responseBody = new Response("Pong");
         Map<String, String> headers = new HashMap<>();
         headers.put("X-Powered-By", "AWS Lambda & Serverless");
