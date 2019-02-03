@@ -8,9 +8,17 @@ Various implementation of serverless lamda.
 4. Congrats you have deployed your serverless function.
 
 ## Cold start of various lambdas
-
+#### For 128 MB RAM
 | Lambda                    | Cold start in ms |
 | :-------------:           |:-------------:   |
-| Java with no framework    | 2000             |
-| Java with Spring boot     | 1000             |
-| Nodejs with no framework  | 1500             |
+| Java with no framework    | [ 5362, 5368, 5300, 5559, 5128 ]            |
+| Java with Spring boot     |              |
+| Nodejs with no framework  | [   ]            |
+
+## Execution time of warm lambda
+#### For 128 MB RAM
+| Lambda                    | Executable time in ms  |
+| :-------------:           |:-------------:         |
+| Java with no framework    | [ 2.95, 0.96, 1.06, 16.83, 0.98 ] |
+| Java with Spring boot     |              |
+| Nodejs with no framework  | [ 18, 0.40]             |

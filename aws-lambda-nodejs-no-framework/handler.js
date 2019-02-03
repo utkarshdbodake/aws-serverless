@@ -1,8 +1,13 @@
-'use strict';
+'use strict'
 
 module.exports.pingHandler = async (event, context) => {
 
-    return {
+    const response = {
         message: 'pong'
     }
-};
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify(response)
+    }
+}
